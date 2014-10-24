@@ -44,6 +44,8 @@
  *        Use inttypes.h in preference to stdint.h.
  *     2006-Jul-25 (PWD):
  *        More fixes for MINGW handling of "long long" printfs.
+ *     2014-10-24 (TIMJ):
+ *        Add hdsbool_t to make it easy to spot logicals in the C API.
 
  *  Copyright:
  *     Copyright (C) 2005 Particle Physics and Astronomy Research Council.
@@ -335,6 +337,13 @@ int main (int argc, char ** argv ) {
 	  "#define HDS_COPY_FORTRAN_DIMS %d\n\n",
 	  copydims);
 
+  /* Logical type -- the C side does not need to be the same as the Fortran
+     side. */
+  fprintf( OutputFile,
+          "/* Public type for Logical type */\n"
+          "typedef %s hdsbool_t;\n"
+          "#define HDS_BOOL_FORMAT \"%s\"\n\n",
+          "int", "d");
 
   fprintf(OutputFile,
 	  "#endif /* _INCLUDED */\n\n");
