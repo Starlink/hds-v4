@@ -4,8 +4,8 @@
 
 <component id="@PACKAGE@" support="S">
   <version>@PACKAGE_VERSION@</version>
-  <path>libraries/hds</path>
-  <description>Hierarchical Data System</description>
+  <path>libext/hds-v4</path>
+  <description>Hierarchical Data System Version 4</description>
   <abstract>
     <p>HDS is a file-based hierarchical data system designed for the
       storage of a wide variety of information. It is particularly
@@ -26,6 +26,7 @@
       and the software which accesses them.  HDS routines are
       therefore invoked indirectly by many other items of Starlink
       software.</p>
+    <p>This library handles HDS files version 4 and below.</p>
   </abstract>
   <dependencies @STAR_DEPENDENCIES_ATTRIBUTES@>
     @STAR_DEPENDENCIES_CHILDREN@

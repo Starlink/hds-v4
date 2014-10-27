@@ -2,10 +2,10 @@
 <!DOCTYPE component SYSTEM "componentinfo.dtd">
 <!-- component.xml.  Generated from component.xml.in by configure. -->
 
-<component id="hds" support="S">
+<component id="hds-v4" support="S">
   <version>5.1-1</version>
-  <path>libraries/hds</path>
-  <description>Hierarchical Data System</description>
+  <path>libext/hds-v4</path>
+  <description>Hierarchical Data System Version 4</description>
   <abstract>
     <p>HDS is a file-based hierarchical data system designed for the
       storage of a wide variety of information. It is particularly
@@ -26,9 +26,10 @@
       and the software which accesses them.  HDS routines are
       therefore invoked indirectly by many other items of Starlink
       software.</p>
+    <p>This library handles HDS files version 4 and below.</p>
   </abstract>
   <dependencies >
-    <build>sae</build><build>chr</build><build>cnf</build><build>ems</build><build>starmem</build><link>chr</link><link>cnf</link><link>ems</link><link>starmem</link><test>chr</test><test>cnf</test><test>ems</test><test>prm</test><test>starmem</test><sourceset>star2html</sourceset><sourceset>messgen</sourceset>
+    <build>sae</build><build>chr</build><build>cnf</build><build>ems</build><build>starmem</build><link>chr</link><link>cnf</link><link>ems</link><link>starmem</link><test>chr</test><test>cnf</test><test>ems</test><test>prm</test><test>starmem</test><sourceset>messgen</sourceset>
   </dependencies>
   <developers>
     <person>
@@ -44,7 +45,7 @@
       <role>owner</role>
     </person>
   </developers>
-  <documentation> sun92</documentation>
+  <documentation></documentation>
   <bugreports>starlink@jiscmail.ac.uk</bugreports>
   <!-- <notes><p></p></notes> -->
 </component>

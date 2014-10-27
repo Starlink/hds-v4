@@ -18,25 +18,7 @@
 
 /* Global Constants:							    */
 /* ================							    */
-/* The following are "public" values. Copies are made available externally  */
-/* in the dat_par.h and dat_par(.f) files.				    */
-#define DAT__MXDIM 7		 /* Maximum number of object dimensions	    */
-#define DAT__NOLOC "<NOT A LOCATOR> "/*	Null (invalid) locator value	    */
-#define DAT__NOWLD 0		 /* Null wild-card search context	    */
-#define DAT__ROOT  "<ROOT LOCATOR>  "/* Root locator value		    */
-#define DAT__SZGRP 15		 /* Size of group name			    */
-#define DAT__SZLOC ( ( 15 > (int) sizeof( struct LOC ) ) ? \
-		     15 : (int) sizeof( struct LOC ) )
-				 /* Size of locator string		    */
-#define DAT__SZMOD 15		 /* Size of access mode string		    */
-#define DAT__SZNAM 15		 /* Size of object name			    */
-#define DAT__SZTYP 15            /* Size of type string			    */
-#ifdef vms
-#define DAT__FLEXT ".SDF"        /* Default HDS file extension              */
-#else
-#define DAT__FLEXT ".sdf"        /* Default HDS file extension              */
-#endif
-#define DAT__SZFLX 4             /* Length of DAT__FLEXT                    */
+#include "dat_par.h"
 
 /* The following are "private" values. These are only used internally.	    */
 #define DAT__CONTAINER 1	 /* Container record class		    */
@@ -407,6 +389,8 @@ if (!_ok(*status))\
       int hds1_get_subs( int ndim, HDS_PTYPE *dims, INT_BIG offset,
                          HDS_PTYPE  *subs );
 
-      HDSLoc * dat1_import_floc ( const char flocator[DAT__SZLOC], int loc_length, int * status);
+      int dat1_import_floc ( const char flocator[DAT__SZLOC],
+			      int loc_length, HDSLoc *clocator,
+			      int * status);
 
 #endif

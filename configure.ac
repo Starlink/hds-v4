@@ -2,7 +2,7 @@ dnl    Process this file with autoconf to produce a configure script
 AC_REVISION($Revision$)
 
 dnl    Initialisation: package name and version number
-AC_INIT([hds],[5.1-1],[starlink@jiscmail.ac.uk])
+AC_INIT([hds-v4],[5.1-1],[starlink@jiscmail.ac.uk])
 AC_CONFIG_AUX_DIR([build-aux])
 
 dnl    Require autoconf-2.50 at least
@@ -113,14 +113,10 @@ STAR_DECLARE_DEPENDENCIES([build], [sae chr cnf ems starmem])
 STAR_DECLARE_DEPENDENCIES([link],  [chr cnf ems starmem])
 STAR_DECLARE_DEPENDENCIES([test],  [chr cnf ems prm starmem])
 
-dnl    List the sun/ssn/... numbers which document this package and
-dnl    which are present as .tex files in this directory.
-STAR_LATEX_DOCUMENTATION(sun92)
-
 dnl    There are two .msg files in this directory, so we need to specify
 dnl    the names of them explicitly, rather than them being defaulted from
 dnl    the package name.
-STAR_MESSGEN([cmp_err.msg dat_err.msg])
+STAR_MESSGEN([dat_err.msg])
 
 AM_CONFIG_HEADER(config.h)
 
