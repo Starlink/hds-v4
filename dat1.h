@@ -309,6 +309,7 @@ if (!_ok(*status))\
 /* LOC - Locator.							    */
       struct LOC
       {
+         int hds_version;        /* HDS implementation version number      */
          struct LCP *lcp;	 /* Address of Locator Control Packet	    */
          unsigned int check;	 /* Validity check			    */
          unsigned int seqno;	 /* Sequence number			    */

@@ -122,6 +122,7 @@
 /* Initialise the locator information, including the locator sequence       */
 /* number which is duplicated in the LCP.                                   */
 	 if (rec_alloc_mem( sizeof(struct LOC), (void**)loc ) == DAT__OK) {
+           (*loc)->hds_version = 4;
 	   (*loc)->check = DAT__LOCCHECK;
 	   (*loc)->lcp = *lcp;
 	   (*loc)->seqno = (*lcp)->seqno = ++hds_gl_locseq;
