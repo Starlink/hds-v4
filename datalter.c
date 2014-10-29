@@ -22,7 +22,7 @@
 /* DAT_ALTER - Alter size of object */
 /*==================================*/
 int
-datAlter(const HDSLoc    *locator,
+datAlter(HDSLoc    *locator,
          int       ndim,
          const HDS_PTYPE dims[],
          int       *status)

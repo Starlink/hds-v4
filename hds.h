@@ -20,7 +20,7 @@
 /*=================================*/
 
 int
-datAlter(const HDSLoc *locator, int ndim, const hdsdim dims[], int *status);
+datAlter(HDSLoc *locator, int ndim, const hdsdim dims[], int *status);
 
 /*==========================*/
 /* datAnnul - Annul locator */
