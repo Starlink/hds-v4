@@ -20,8 +20,9 @@ libhds_v4_la_LIBADD = `starmem_link` `ems_link`
 
 # Make all library code position independent. This is handy for creating
 # shareable libraries from the static ones (Java JNI libraries).
+libhds_v4_la_CFLAGS = $(AM_CFLAGS) -DHDS_INTERNAL_INCLUDES
 if !NOPIC
-libhds_v4_la_CFLAGS = $(AM_CFLAGS) -prefer-pic
+libhds_v4_la_CFLAGS = $(libhds_v4_la_CFLAGS) -prefer-pic
 endif
 
 hds_machine_SOURCES = hds_machine.c
