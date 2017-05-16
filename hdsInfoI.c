@@ -37,6 +37,8 @@
 *        - ALOCATORS: Returns the number of all active locators, including
 *                     scratch space.
 *        - FILES : Return the number of open files
+*        - VERSION : Return the HDS implementation version number for the
+*                    supplied HDS locator.
 *     extra = const char * (Given)
 *        Extra options to control behaviour. The content depends on
 *        the particular TOPIC. See NOTES for more information.
@@ -76,6 +78,7 @@
 *  Authors
 *     TIMJ: Tim Jenness (JAC, Hawaii)
 *     BKM:  Brian McIlwrath (ex-Starlink, RAL)
+*     DSB:  David S Berry (EAO):
 *     {enter_new_authors_here}
 
 *  History :
@@ -94,6 +97,8 @@
 *     2010-12-09 (TIMJ):
 *        LOCATORS will now count HDS_SCRATCH locators but will skip the root
 *        HDS_SCRATCH locators.
+*     2017-05-16 (DSB):
+*        Add topic VERSION.
 *     {enter_further_changes_here}
 
 *  Copyright:
@@ -217,6 +222,10 @@ hdsInfoI(const HDSLoc* loc, const char *topic_str, const char * extra_str,
 
 /* Format the topic name and calculate appropriate statistic.    */
    dau_check_name(&topic, name);
+
+   /* Version number */
+   if (_cheql(7,name, "VERSION"))
+      *result = loc->hds_version;
 
    /* Number of open files */
    if (_cheql(4,name, "FILE"))
