@@ -28,5 +28,7 @@ fac_*_err
 /hdsdump_v4
 /libtool
 /make-hds-types
+/make.log
+/make.log.err
 /stamp-h1
 /starconf.status
