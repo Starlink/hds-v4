@@ -10,6 +10,7 @@
 
 #include "hds1.h"             /* Global definitions for HDS              */
 #include "rec.h"              /* Public rec_ definitions                 */
+#include "rec1.h"             /* Internal rec_ definitions               */
 #include "str.h"              /* Character string import/export macros   */
 #include "dat1.h"             /* Internal dat_ definitions               */
 #include "dat_err.h"          /* DAT__ error code definitions            */
@@ -61,7 +62,7 @@ hdsOpen(const char *file_str,
 
 /* Obtain the locator */
 
-   _call(dat1_alloc_lcp(locator, &lcp ))
+   _call(dat1_alloc_lcp(locator, &lcp, 0 ))
    data = &lcp->data;
 
 /* Validate the access mode and open the file. */
@@ -114,12 +115,14 @@ hdsOpen(const char *file_str,
    }
 
 /* Fill in Locator Control Packet fields, making this a primary locator and */
-/* incrementing the container file reference count.                         */
+/* incrementing the container file reference count. Also set the locator    */
+/* version number. */
     data->struc = (obj->class == DAT__STRUCTURE);
    data->read   = (data->mode == 'R');
    lcp->primary = 1;
    rec_refcnt( &han, 1, &refcnt, &hds_gl_status );
    data->valid = 1;
+   (*locator)->hds_version = rec_ga_fcv[data->han.slot].hds_version;
 
    return hds_gl_status;
 }

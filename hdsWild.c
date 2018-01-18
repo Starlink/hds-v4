@@ -8,6 +8,7 @@
 #include "ems_par.h"             /* EMS public constants                    */
 #include "hds1.h"                /* Global definitions for HDS              */
 #include "rec.h"                 /* Public rec_ definitions                 */
+#include "rec1.h"                /* Private rec_ definitions                */
 #include "dat1.h"                /* Internal dat_ definitions               */
 #include "dat_err.h"             /* DAT__ error code definitions            */
 #include "hds.h"
@@ -270,7 +271,7 @@ the specification \'^FSPEC\'.",
                else
                {
                   emsRlse( );
-                  dat1_alloc_lcp(locator, &lcp );
+                  dat1_alloc_lcp(locator, &lcp, 0 );
                   if ( _ok( hds_gl_status ) )
                   {
                      outlocok = 1;
@@ -324,13 +325,15 @@ the specification \'^FSPEC\'.",
                         }
 
 /* Fill the remaining Locator Control Packet fields, making this a primary  */
-/* locator and incrementing the container file reference count.             */
+/* locator and incrementing the container file reference count. Also set    */
+/* the locator version number.                                              */
                         lcp->data.mode = mode_c;
                         lcp->data.read = ( mode_c == 'R' );
                         lcp->data.struc =
                            ( lcp->data.obj.class == DAT__STRUCTURE );
                         lcp->primary = 1;
                         rec_refcnt( &han, 1, &refcnt, &hds_gl_status );
+                        (*locator)->hds_version = rec_ga_fcv[lcp->data.han.slot].hds_version;
                      }
 
 /* If there has been no error, then mark the LCP as valid.                  */

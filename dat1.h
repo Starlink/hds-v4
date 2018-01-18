@@ -324,7 +324,7 @@ if (!_ok(*status))\
 
 /* Function Prototypes:							    */
 /* ===================							    */
-      int dat1_alloc_lcp( struct LOC **loc, struct LCP **lcp );
+      int dat1_alloc_lcp( struct LOC **loc, struct LCP **lcp, int hds_version );
       void dat1_annul_lcp( struct LCP **lcp );
       void dat1_check_mode( const char *mode, INT mode_len, char *modechar,
 			    INT *status );

@@ -149,7 +149,7 @@ datFind( const HDSLoc *locator1,
       }
 
 /* Export the destination locator and stick a handle on the object record.  */
-      dat1_alloc_lcp(locator2, &lcp2 );
+      dat1_alloc_lcp(locator2, &lcp2, locator1->hds_version );
       if ( _ok( hds_gl_status ) )
       {
          loc2ok = 1;
@@ -328,7 +328,7 @@ datIndex(const HDSLoc *locator1,
 
 /* Export the destination locator and stick a handle on the object record. */
 
-   _call(dat1_alloc_lcp(locator2, &lcp2 ))
+   _call(dat1_alloc_lcp(locator2, &lcp2, locator1->hds_version ))
    data2 = &lcp2->data;
    rec_get_handle( &rid, &han, &data2->han );
    rec_get_rid( &han, &data2->parent );

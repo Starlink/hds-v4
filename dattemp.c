@@ -75,7 +75,7 @@ datTemp(const char      *type_str,
 
 /* Export locator.      */
 
-   _call(dat1_alloc_lcp(locator, &lcp ))
+   _call(dat1_alloc_lcp(locator, &lcp, 0 ))
    data  = &lcp->data;
 
 /* Create a temporary container file if not yet done.   */
@@ -199,13 +199,15 @@ dat1_locate_name( crv, 0, &name1 );
    rec_release_data(&temp_handle, SZCRV, ncomp*SZCRV, 'W', &crv);
 
 /* Reset the component count, increment the level and flag whether the new
-   object is structure or primitive, then mark the locator as valid.    */
+   object is structure or primitive, then mark the locator as valid and
+   set its version number.    */
 
    ++ncomp;
    dat1_put_ncomp(&temp_handle, ncomp);
    data->level = 1;
    data->struc = (obj->class == DAT__STRUCTURE);
    data->valid = 1;
+   (*locator)->hds_version = rec_ga_fcv[data->han.slot].hds_version;
    return hds_gl_status;
 }
 

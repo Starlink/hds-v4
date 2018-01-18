@@ -5,6 +5,7 @@
 #include "ems.h"                 /* EMS error reporting routines            */
 #include "hds1.h"                /* Global definitions for HDS              */
 #include "rec.h"                 /* Public rec_ definitions                 */
+#include "rec1.h"                /* Internal rec_ definitions               */
 #include "str.h"                 /* Character string import/export macros   */
 #include "dat1.h"                /* Internal dat_ definitions               */
 #include "dat_err.h"             /* DAT__ error code definitions            */
@@ -64,7 +65,7 @@ hdsNew(const char *file_str,
 
 /* Export the locator.  */
 
-   _call( dat1_alloc_lcp(locator, &lcp ) )
+   _call( dat1_alloc_lcp(locator, &lcp, 0 ) )
    data = &lcp->data;
 
 /* Set 64-bit file format flag appropriately                            */
@@ -149,10 +150,11 @@ hdsNew(const char *file_str,
    data->struc = (obj->class == DAT__STRUCTURE);
 
 /* Make the output locator a primary locator, increment the container file  */
-/* reference count and mark the locator as valid.                           */
+/* reference count, mark the locator as valid and set its version number.   */
    lcp->primary = 1;
    rec_refcnt( &han, 1, &refcnt, &hds_gl_status );
    data->valid = 1;
+   (*locator)->hds_version = rec_ga_fcv[data->han.slot].hds_version;
 
    return hds_gl_status;
 }

@@ -68,7 +68,7 @@ datSlice(const HDSLoc   *locator1,
 
 /* Export the destination locator and copy all the LCP data fields.     */
 
-   _call(dat1_alloc_lcp(locator2, &lcp2 ))
+   _call(dat1_alloc_lcp(locator2, &lcp2, locator1->hds_version ))
    data2 = &lcp2->data;
    state2 = &data2->state;
    *data2 = *data1;
@@ -189,7 +189,7 @@ datCell( const HDSLoc *locator1,
 
 /* Export the destination locator and copy all the LCP data fields.     */
 
-   _call(dat1_alloc_lcp(locator2, &lcp2 ))
+   _call(dat1_alloc_lcp(locator2, &lcp2, locator1->hds_version ))
    data2  = &lcp2->data;
    state2 = &data2->state;
    *data2 = *data1;
@@ -275,7 +275,7 @@ datVec(const HDSLoc *locator1,
 
 /* Export the destination locator and copy all the LCP data fields.     */
 
-   _call(dat1_alloc_lcp(locator2, &lcp2 ))
+   _call(dat1_alloc_lcp(locator2, &lcp2, locator1->hds_version ))
    data2  = &lcp2->data;
    state2 = &data2->state;
    *data2 = *data1;
@@ -360,7 +360,7 @@ datCoerc(const HDSLoc *locator1,
 
 /* Export the destination locator and copy all the LCP data fields.     */
 
-   _call(dat1_alloc_lcp(locator2, &lcp2 ))
+   _call(dat1_alloc_lcp(locator2, &lcp2, locator1->hds_version ))
    data2  = &lcp2->data;
    state2 = &data2->state;
    *data2 = *data1;
@@ -427,7 +427,7 @@ datClone(const HDSLoc *locator1,
 
 /* Export the destination locator and copy all the LCP data fields.     */
 
-   _call(dat1_alloc_lcp(locator2, &lcp2 ))
+   _call(dat1_alloc_lcp(locator2, &lcp2, locator1->hds_version ))
    data2  = &lcp2->data;
    state2 = &data2->state;
    *data2 = *data1;

@@ -12,7 +12,7 @@
 #include "dat1.h"                /* Internal dat_ definitions               */
 #include "dat_err.h"             /* DAT__ error code definitions            */
 
-   int dat1_alloc_lcp( struct LOC **loc, struct LCP **lcp )
+   int dat1_alloc_lcp( struct LOC **loc, struct LCP **lcp, int hds_version )
    {
 /*+                                                                         */
 /* Name:                                                                    */
@@ -22,7 +22,7 @@
 /*    Allocate a Locator Control Packet and initialise a locator.           */
 
 /* Invocation:                                                              */
-/*    dat1_alloc_lcp( loc, lcp )                                            */
+/*    dat1_alloc_lcp( loc, lcp, hds_version )                                   */
 
 /* Description:                                                             */
 /*    This function allocates a new Locator Control Packet (LCP) to control */
@@ -39,6 +39,8 @@
 /*       newly-allocated LCP. A null pointer will be returned in *lcp if    */
 /*       this routine is invoked with the global status set, or if it       */
 /*       should fail for any reason.                                        */
+/*    int hds_version                                                       */
+/*       Version number to be set in the newly initialized locator.         */
 
 /* Returned Value:                                                          */
 /*    int dat1_alloc_lcp                                                    */
@@ -122,7 +124,7 @@
 /* Initialise the locator information, including the locator sequence       */
 /* number which is duplicated in the LCP.                                   */
 	 if (rec_alloc_mem( sizeof(struct LOC), (void**)loc ) == DAT__OK) {
-           (*loc)->hds_version = 4;
+           (*loc)->hds_version = hds_version;
 	   (*loc)->check = DAT__LOCCHECK;
 	   (*loc)->lcp = *lcp;
 	   (*loc)->seqno = (*lcp)->seqno = ++hds_gl_locseq;

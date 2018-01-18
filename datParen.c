@@ -258,7 +258,7 @@ structure (possible programming error).",
 
 /* Export the output locator and find the data fields in the associated     */
 /* Locator Control Packet.                                                  */
-      dat1_alloc_lcp( locator2, &lcp2 );
+      dat1_alloc_lcp( locator2, &lcp2, locator1->hds_version );
       if ( _ok( hds_gl_status ) )
       {
          loc2ok = 1;
