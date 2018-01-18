@@ -44,10 +44,10 @@ cinclude_HEADERS = $(PUBLIC_CINCLUDES)
 noinst_MESSAGES = dat_err.h
 
 # dat_par.h was previously released so must go in the root include dir
-PUBLIC_CINCLUDES = hds_v4.h hds_types.h
+PUBLIC_CINCLUDES = hds_v4.h
 
 PRIVATE_INCLUDES = \
-	dat_par.h hds.h \
+	dat_par.h hds.h hds_types.h \
         dat1.h hds1.h hds2.h hds1_types.h \
 	rec.h rec1.h str.h \
         win_fixups.h \
