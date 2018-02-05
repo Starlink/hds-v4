@@ -53,5 +53,4 @@ NOMEM	<Memory allocation error>
 WLDIN	<Wild-card search context invalid>
 NOCMP   <No component name>
 DTRNC   <Dimensions truncate in Fortran INTEGER*4>
-THREAD  <Object not locked by current thread>
 .END
