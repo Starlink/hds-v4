@@ -32,3 +32,9 @@ fac_*_err
 /make.log.err
 /stamp-h1
 /starconf.status
+/hdsTest.log
+/hdsTest.trs
+/hds_ctest.sdf
+/hds_test_prm.log
+/hds_test_prm.trs
+/test-suite.log
