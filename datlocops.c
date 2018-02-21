@@ -211,8 +211,8 @@ datCell( const HDSLoc *locator1,
 
    _call(dat1_get_off( naxes, axis, subs, &data2->offset) )
    if (data2->offset >= data1->size) {
-     dat1emsSetBigu( "OFF", data2->offset );
-     dat1emsSetBigu( "SIZE", data1->size );
+     dat1EmsSetBigu( "OFF", data2->offset );
+     dat1EmsSetBigu( "SIZE", data1->size );
      _callm(DAT__SUBIN, " Offset into data array (^OFF) exceeds size (^SIZE).")
    }
 
@@ -484,12 +484,12 @@ dat1_get_off(int ndim, const HDS_PTYPE *dims, const HDS_PTYPE *subs,
 	emsSeti( "I", i+1 ); /* Fortran indexing */
 	emsSeti( "ND", ndim);
 	if (subs[i]>dims[i]) {
-	  dat1emsSetHdsdim( "SUBS", subs[i]);
-	  dat1emsSetHdsdim( "SIZE", dims[i] );
+	  dat1EmsSetHdsdim( "SUBS", subs[i]);
+	  dat1EmsSetHdsdim( "SIZE", dims[i] );
 	  emsRep( " ", "Subscript for dimension ^I of ^ND exceeds max allowed value"
 		  " (^SUBS > ^SIZE) ", &hds_gl_status );
 	} else if (subs[i] < 1) {
-	  dat1emsSetHdsdim( "SUBS", subs[i]);
+	  dat1EmsSetHdsdim( "SUBS", subs[i]);
 	  emsRep( " ", "Subscript for dimension ^I of ^ND is out of range (^SUBS < 1)",
 		  &hds_gl_status );
 	}

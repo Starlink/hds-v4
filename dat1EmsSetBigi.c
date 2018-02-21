@@ -12,34 +12,34 @@
 /*
 *+
 *  Name:
-*     dat1emsSetHdsdim
+*     dat1EmsSetBigi
 
 *  Purpose:
-*     Set message token for hdsdim integer.
+*     Set message token for INT_BIG integer.
 
 *  Invocation:
-*     dat1emsSetHdsdim( const char * token, HDS_PTYPE value );
+*     dat1EmsSetBigi( const char * token, INT_BIG value );
 
 *  Description :
-*     Version of emsSetu suitable for the hdsdim HDS type.
+*     Version of emsSeti suitable for the INT_BIG internal HDS type.
 
 *  Parameters :
 *     token = const char * (Given)
 *        Message token to use.
-*     value = hdsdim (Given)
+*     value = INT_BIG (Given)
 *        Value to store in token.
 
 *  Notes:
-*     This routine should be called instead of emsSetu (or related)
-*     if an hdsdim is to be stored in a token.
+*     This routine should be called instead of emsSeti if an INT_BIG
+*     is to be stored in a token.
 
 *  Authors
 *     TIMJ: Tim Jenness (JAC, Hawaii)
 *     {enter_new_authors_here}
 
 *  History :
-*     11-JUL-2006 (TIMJ):
-*        Copy from dat1emsSetBigu
+*     3-MAR-2006 (TIMJ):
+*        Original version.
 *     {enter_further_changes_here}
 
 *  Copyright:
@@ -71,14 +71,14 @@
 #define BUFSIZE 64
 
 void
-dat1emsSetHdsdim( const char * token, hdsdim value )
+dat1EmsSetBigi( const char * token, INT_BIG value )
 {
   /* simplest approach is to format the number our selves and then
      store that using emsSetc */
   char buffer[BUFSIZE];
   int nfmt;
 
-  nfmt = snprintf(buffer, BUFSIZE, "%" HDS_DIM_FORMAT, value );
+  nfmt = snprintf(buffer, BUFSIZE, "%" HDS_INT_BIG_S, value );
   if (nfmt < BUFSIZE) emsSetc( token, buffer );
   return;
 }

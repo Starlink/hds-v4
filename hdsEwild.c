@@ -7,6 +7,7 @@
 #include "rec.h"                 /* Public rec_ definitions                 */
 #include "dat1.h"                /* Internal dat_ definitions               */
 #include "dat_err.h"             /* DAT__ error code definitions            */
+#include "hds.h"                 /* For V4 name mapping                     */
 
 int
 hdsEwild( int *iwld,

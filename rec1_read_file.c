@@ -128,8 +128,8 @@
       if ( !rec_ga_fcv[ slot ].open )
       {
          hds_gl_status = DAT__FILRD;
-         dat1emsSetBigi( "FIRST", bloc );
-         dat1emsSetBigi( "LAST", bloc + size - 1 );
+         dat1EmsSetBigi( "FIRST", bloc );
+         dat1EmsSetBigi( "LAST", bloc + size - 1 );
          emsSeti( "SLOT", slot );
          emsRep( "REC1_READ_FILE_1",
                     "Unable to read blocks ^FIRST:^LAST from file on HDS \
@@ -141,7 +141,7 @@ internal slot ^SLOT; container file is not open (internal programming error).",
 /*  Check the size request                                                  */
 	if (size <= 0) {
 	  hds_gl_status = DAT__FILRD;
-	  dat1emsSetBigi( "SIZE", size );
+	  dat1EmsSetBigi( "SIZE", size );
 	  rec1_fmsg( "FILE", slot );
 	  emsRep( "REC1_READ_FILE_1a",
                     "Routine rec1_read_file called with an invalid size \
@@ -151,7 +151,7 @@ argument of ^SIZE for file ^FILE (internal programming error).",
 	}
 	if (bloc <= 0) {
 	  hds_gl_status = DAT__FILRD;
-	  dat1emsSetBigi( "BLOC", bloc );
+	  dat1EmsSetBigi( "BLOC", bloc );
 	  rec1_fmsg( "FILE", slot );
 	  emsRep( "REC1_READ_FILE_1b",
                     "Routine rec1_read_file called with an invalid bloc \
@@ -250,8 +250,8 @@ argument of ^BLOC for file ^FILE (internal programming error).",
          {
             hds_gl_status = DAT__FILRD;
             emsSyser( "MESSAGE", errno );
-            dat1emsSetBigi( "FIRST", bloc );
-            dat1emsSetBigi( "LAST", bloc + size - 1 );
+            dat1EmsSetBigi( "FIRST", bloc );
+            dat1EmsSetBigi( "LAST", bloc + size - 1 );
             rec1_fmsg( "FILE", slot );
             emsRep( "REC1_READ_FILE_3",
                        "Unable to read blocks ^FIRST:^LAST from file ^FILE - \

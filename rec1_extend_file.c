@@ -123,7 +123,7 @@
 /*    22-JUN-2000 (BKM):                                                    */
 /*       Revise for extended format (64-bit) HDS files.                     */
 /*     4-MAR-2006 (TIMJ):                                                   */
-/*       Fix empty-if error. Use dat1emsSetBigi.                            */
+/*       Fix empty-if error. Use dat1EmsSetBigi.                            */
 /*    {@enter_further_changes_here@}                                        */
 
 /* Bugs:                                                                    */
@@ -382,8 +382,8 @@ to give a size of ^BLOCKS blocks (^SIZE bytes) - ^MESSAGE (FAB status = ^STV).",
          hds_gl_status = DAT__FILNX;
          emsSyser( "MESSAGE", errno );
          rec1_fmsg( "FILE", slot );
-         dat1emsSetBigi( "BLOCKS", size );
-         dat1emsSetBigi( "SIZE", size * REC__SZBLK );
+         dat1EmsSetBigi( "BLOCKS", size );
+         dat1EmsSetBigi( "SIZE", size * REC__SZBLK );
          emsRep( "REC1_EXTEND_FILE_6",
                     "Unable to extend the file ^FILE to a size of ^BLOCKS \
 blocks (^SIZE bytes) - ^MESSAGE",

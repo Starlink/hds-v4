@@ -273,8 +273,8 @@
             if ( !( systat & STS$M_SUCCESS ) )
             {
                hds_gl_status = DAT__FILMP;
-               dat1emsSetBigi( "START", bloc );
-	       dat1emsSetBigi( "END", bloc + nbloc - 1 );
+               dat1EmsSetBigi( "START", bloc );
+	       dat1EmsSetBigi( "END", bloc + nbloc - 1 );
 	       emsSetnc( "ACCESS", &mode, 1 );
 	       rec1_fmsg( "FILE", slot );
                emsSyser( "MESSAGE", systat );
@@ -313,8 +313,8 @@ access in file ^FILE - ^MESSAGE.",
             {
 	       emsMark( );
                hds_gl_status = DAT__FILMP;
-               dat1emsSetBigi( "START", bloc );
-	       dat1emsSetBigi( "END", bloc + nbloc - 1 );
+               dat1EmsSetBigi( "START", bloc );
+	       dat1EmsSetBigi( "END", bloc + nbloc - 1 );
 	       emsSetnc( "ACCESS", &mode, 1 );
 	       rec1_fmsg( "FILE", slot );
                emsSyser( "MESSAGE", systat );
@@ -355,8 +355,8 @@ access in file ^FILE - ^MESSAGE.",
                   if ( !( systat & STS$M_SUCCESS ) )
                   {
                      hds_gl_status = DAT__FILMP;
-                     dat1emsSetBigi( "START", bloc );
-	             dat1emsSetBigi( "END", bloc + nbloc - 1 );
+                     dat1EmsSetBigi( "START", bloc );
+	             dat1EmsSetBigi( "END", bloc + nbloc - 1 );
 	             emsSetnc( "ACCESS", &mode, 1 );
 	             rec1_fmsg( "FILE", slot );
                      emsSyser( "MESSAGE", systat );
@@ -582,9 +582,9 @@ file ^FILE - ^MESSAGE",
                {
                   hds_gl_status = DAT__FILMP;
                   emsSyser( "MESSAGE", errno );
-                  dat1emsSetBigi( "FIRST", offs + 1 );
-                  dat1emsSetBigi( "LAST", offs + length );
-		  dat1emsSetBigi( "NB", length );
+                  dat1EmsSetBigi( "FIRST", offs + 1 );
+                  dat1EmsSetBigi( "LAST", offs + length );
+		  dat1EmsSetBigi( "NB", length );
                   emsSetnc( "ACCESS", &mode, 1 );
                   rec1_fmsg( "FILE", slot );
                   emsRep( "REC1_MAP_FRAME_6",
@@ -714,8 +714,8 @@ file ^FILE - ^MESSAGE",
 	       {
 	          hds_gl_status = DAT__FILRD;
                   emsSyser( "MESSAGE", errno );
-	          dat1emsSetBigi( "FIRST", offs + 1 );
-	          dat1emsSetBigi( "LAST", offs + length );
+	          dat1EmsSetBigi( "FIRST", offs + 1 );
+	          dat1EmsSetBigi( "LAST", offs + length );
 	          rec1_fmsg( "FILE", slot );
 	          emsRep( "REC1_MAP_FRAME_10",
 		             "Error reading bytes ^FIRST:^LAST from file \

@@ -152,7 +152,7 @@
          {
             hds_gl_status = DAT__NOMEM;
             emsSyser( "MESSAGE", errno );
-            dat1emsSetBigu( "NBYTES", (UINT_BIG)size );
+            dat1EmsSetBigu( "NBYTES", (UINT_BIG)size );
             emsRep( "REC_ALLOC_XMEM_2",
                        "Unable to obtain a block of ^NBYTES bytes of memory "
                        "- ^MESSAGE", &hds_gl_status );

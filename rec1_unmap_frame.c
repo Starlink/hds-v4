@@ -409,8 +409,8 @@
 	       {
 	          hds_gl_status = DAT__FILWR;
 	          emsSyser( "MESSAGE", errno );
-	          dat1emsSetBigi( "FIRST", offs + 1 );
-	          dat1emsSetBigi( "LAST", offs + length );
+	          dat1EmsSetBigi( "FIRST", offs + 1 );
+	          dat1EmsSetBigi( "LAST", offs + length );
 	          rec1_fmsg( "FILE", slot );
 	          emsRep( "REC1_UNMAP_FRAME_3",
 	                     "Error writing bytes ^FIRST:^LAST to file ^FILE - \

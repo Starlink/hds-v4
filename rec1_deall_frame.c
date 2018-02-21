@@ -106,7 +106,7 @@
       if ( size <= 0 )
       {
          hds_gl_status = DAT__FATAL;
-         dat1emsSetBigi( "SIZE", size );
+         dat1EmsSetBigi( "SIZE", size );
          emsRep( "REC1_DEALL_FRAME_1",
                     "Routine rec1_deall_frame called with an invalid size \
 argument of ^SIZE (internal programming error).",
@@ -117,7 +117,7 @@ argument of ^SIZE (internal programming error).",
       else if ( bloc <= 0 )
       {
          hds_gl_status = DAT__FATAL;
-         dat1emsSetBigi( "BLOC", bloc );
+         dat1EmsSetBigi( "BLOC", bloc );
          emsRep( "REC1_DEALL_FRAME_2",
                     "Routine rec1_deall_frame called with an invalid bloc \
 argument of ^BLOC (internal programming error).",

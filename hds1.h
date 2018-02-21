@@ -253,9 +253,9 @@ typedef hdsdim HDS_PTYPE;
 /* EMS wrapper routines:                                                    */
 /* =======================================				    */
 
-      void dat1emsSetBigi( const char * token, INT_BIG value );
-      void dat1emsSetBigu( const char * token, UINT_BIG value );
-      void dat1emsSetHdsdim( const char * token, hdsdim value );
+      void dat1EmsSetBigi( const char * token, INT_BIG value );
+      void dat1EmsSetBigu( const char * token, UINT_BIG value );
+      void dat1EmsSetHdsdim( const char * token, hdsdim value );
 
 /* Fixups for various machine deficiencies:				    */
 /* =======================================				    */
