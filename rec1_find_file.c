@@ -6,7 +6,11 @@
 void rec1_find_file( void ){};	 /* This routine not used on VMS systems */
 #else
 
-#include <config.h>              /* Autoconf definitions */
+
+#if HAVE_CONFIG_H
+#  include <config.h>
+#endif
+
 
 /* C include files:							    */
 /* ===============							    */
