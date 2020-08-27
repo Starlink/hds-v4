@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <limits.h>
 #include <float.h>               /* DBL_DIG */
+#include <inttypes.h>
 
 #include "f77.h"                 /* F7 <=> C interface macros               */
 #include "ems.h"                 /* EMS error reporting routines            */
@@ -1339,6 +1340,9 @@ dat1_cvt_char(bad, nval, imp, exp, nbad)
                break;
             case DAT__UW:
                nchar = snprintf( buffer, sizeof(buffer), "%u", *((_UWORD *) src.body) );
+               break;
+            case DAT__K:
+               nchar = snprintf( buffer, sizeof(buffer), "%" PRId64, *((_INT64 *) src.body) );
          }
 
 /* Convert the characters to the destination. The sscanf routine does not
@@ -1443,6 +1447,15 @@ dat1_cvt_char(bad, nval, imp, exp, nbad)
                {
                   (*nbad)++;
                   *((_UWORD *) des.body) = dat_gl_ndr[ DAT__UW ].bad.UW;
+                  hds_gl_status = DAT__CONER;
+               }
+               break;
+            case DAT__K:
+               nitem = sscanf(buffer, "%" SCNd64, (_INT64 *) des.body);
+               if (nitem == 0)
+               {
+                  (*nbad)++;
+                  *((_INT64 *) des.body) = dat_gl_ndr[ DAT__K ].bad.K;
                   hds_gl_status = DAT__CONER;
                }
          }
