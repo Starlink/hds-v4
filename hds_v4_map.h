@@ -142,6 +142,7 @@
 #define hdsLink hdsLink_v4
 #define hdsLock hdsLock_v4
 #define hdsNew hdsNew_v4
+#define hdsIsOpen hdsIsOpen_v4
 #define hdsOpen hdsOpen_v4
 #define hdsShow hdsShow_v4
 #define hdsState hdsState_v4

@@ -93,6 +93,7 @@ int main (void) {
   size_t nelt;
   size_t nbytes;
   size_t i;
+  int isopen;
   int n;
   double sumd;
   int sumi;
@@ -348,8 +349,22 @@ int main (void) {
   datAnnul( &loc2, &status );
   hdsClose( &loc1, &status );
 
+  /* Check it is now closed */
+  hdsIsOpen( path, &isopen, &status );
+  if( isopen && status == DAT__OK ) {
+     status = DAT__FATAL;
+     emsRepf( "SIZE","File %s should now be closed, but it isn't", &status, path );
+  }
+
   /* Re-open */
   hdsOpen( path, "UPDATE", &loc1, &status );
+
+  /* Check it is now open */
+  hdsIsOpen( path, &isopen, &status );
+  if( !isopen && status == DAT__OK ) {
+     status = DAT__FATAL;
+     emsRepf( "SIZE","File %s should now be open, but it isn't", &status, path);
+  }
 
   /* Look for the data array and map it */
   datFind( loc1, "DATA_ARRAY", &loc2, &status );
