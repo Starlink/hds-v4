@@ -93,7 +93,10 @@
          rid->bloc = 0;
          for( j = 22; j >15; j-- )
          {
-            temp = element[ j ] << shift;
+            /* With clang on macOS, "temp = element[ j ] << shift" does not
+               seem to work.  Therefore try doing this as two steps. */
+            temp = element[ j ];
+            temp <<= shift;
             rid->bloc |= temp;
             shift -= 8;
          }
